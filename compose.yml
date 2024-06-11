@@ -1,0 +1,14 @@
+version: '8.0'
+services:
+    apache:
+        image: httpd:alpine
+        container_name: 'Apache'
+        ports:
+            - 5234:80
+        volumes:
+            - ./htdocs:/usr/local/apache2/htdocs/
+        networks:
+            - canalApache
+networks:
+    canalApache:
+        driver: bridge
